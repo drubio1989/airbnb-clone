@@ -14,7 +14,7 @@ import {
 import useRegisterModal from '@/app/hooks/useRegisterModal';
 import Modal from './Modal';
 import Heading from '../Heading';
-import { register } from 'module';
+import Input from '@/app/components/inputs/Input'
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -51,7 +51,18 @@ const RegisterModal = () => {
 
   const bodyContent = (
     <div className='flex flex-col gap-4'>
-      <Heading />
+      <Heading 
+        title="Welcome to AirBnb" 
+        subtitle="Create an account"
+      />
+      <Input 
+        id='email'
+        label='Email'
+        disabled={isLoading}
+        register={register}
+        errors={errors}
+        required
+      />
     </div>
   )
 
@@ -63,6 +74,7 @@ const RegisterModal = () => {
       actionLabel='Continue'
       onClose={registerModal.onClose}
       onSubmit={handleSubmit(onSubmit)}
+      body={bodyContent}
     />
   )
 }
