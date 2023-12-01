@@ -1,14 +1,24 @@
 'use client'
 import { AiOutlineMenu } from 'react-icons/ai';
 import { useCallback, useState } from 'react';
+import { signOut } from 'next-auth/react';
 import Avatar from './Avatar';
 import MenuItem from './MenuItem';
 import Button from '../Button';
 import useRegisterModal from '@/app/hooks/useRegisterModal';
+import useLoginModal from '@/app/hooks/useLoginModal';
+import { User } from '@prisma/client';
 
 
-const UserMenu = () => {
+interface UserMenuProps {
+  currentUser?: User | null;
+}
+
+const UserMenu: React.FC<UserMenuProps> = ({
+  currentUser
+}) => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -78,7 +88,90 @@ const UserMenu = () => {
         >
          
           <div className='flex flex-col cursor-pointer border-red-300'>
-            <>
+            {currentUser ? (
+                <>
+                <div 
+                  className="
+                    px-4
+                    py-3
+                    hover:bg-neutral-100
+                    transition
+                    font-semibold
+                  "
+                >
+                  <button onClick={loginModal.onOpen}>
+                    My Trips
+                  </button>
+                </div>
+                <div 
+                  className="
+                    px-4
+                    py-3
+                    hover:bg-neutral-100
+                    transition
+                    font-semibold
+                  "
+                >
+                  <button onClick={loginModal.onOpen}>
+                    My Favorites
+                  </button>
+                </div>
+                <div   
+                  className="
+                      px-4
+                      py-3
+                      hover:bg-neutral-100
+                      transition
+                      font-semibold
+                  " 
+                >
+                  <button onClick={registerModal.onOpen}>
+                    My Reservations
+                  </button>
+                </div>
+                <div   
+                  className="
+                      px-4
+                      py-3
+                      hover:bg-neutral-100
+                      transition
+                      font-semibold
+                  " 
+                >
+                  <button onClick={registerModal.onOpen}>
+                    My Properties
+                  </button>
+                </div>
+                <div   
+                  className="
+                      px-4
+                      py-3
+                      hover:bg-neutral-100
+                      transition
+                      font-semibold
+                  " 
+                >
+                  <button onClick={registerModal.onOpen}>
+                   Airbnb My Home
+                  </button>
+                </div>
+                <hr />
+                <div   
+                  className="
+                      px-4
+                      py-3
+                      hover:bg-neutral-100
+                      transition
+                      font-semibold
+                  " 
+                >
+                  <button onClick={() => signOut()}>
+                   Sign Out
+                  </button>
+                </div>
+              </>
+            ) : (
+              <>
               <div className="
                   px-4
                   py-3
@@ -87,7 +180,7 @@ const UserMenu = () => {
                   font-semibold
                 "
               >
-              <button onClick={registerModal.onOpen}>
+              <button onClick={loginModal.onOpen}>
                 Log In
               </button>
               </div>
@@ -105,6 +198,7 @@ const UserMenu = () => {
                 </button>
               </div>
             </>
+            )}
           </div>
         </div>
       )}
