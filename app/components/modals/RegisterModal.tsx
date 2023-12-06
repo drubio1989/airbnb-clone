@@ -18,9 +18,12 @@ import Heading from '../Heading';
 import Input from '@/app/components/inputs/Input'
 import toast from 'react-hot-toast';
 import Button from '../Button';
+import LoginModal from './LoginModal';
+import useLoginModal from '@/app/hooks/useLoginModal';
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
+  const loginModal = useLoginModal();
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -51,6 +54,11 @@ const RegisterModal = () => {
       setIsLoading(true);
     })
   }
+
+  const toggle = useCallback(() => {
+    registerModal.onClose();
+    loginModal.onOpen();
+  }, [loginModal, registerModal])
 
   const bodyContent = (
     <div className='flex flex-col gap-4'>
@@ -120,7 +128,7 @@ const RegisterModal = () => {
          Already Have an account?
         </div>
         <div 
-          onClick={registerModal.onClose}
+          onClick={toggle}
           className='
             text-neutral-800
             cursor-pointer
