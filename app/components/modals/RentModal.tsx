@@ -11,7 +11,7 @@ import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
 import dynamic from "next/dynamic";
 import Counter from "../inputs/Counter";
-import ImageUpload from "../inputs/imageUpload";
+import ImageUpload from "../inputs/ImageUpload";
 import Input from "../inputs/Input";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
