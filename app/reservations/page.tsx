@@ -20,6 +20,7 @@ const ReservationsPage = async () => {
   }
 
   const reservations = await geteReservations({
+    // This was supposed to be authorId why?
     authorId: currentUser.id
   })
 
