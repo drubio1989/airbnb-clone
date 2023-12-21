@@ -7,7 +7,7 @@ interface HeartButtonProps {
   currentUser?: SafeUser | null;
 }
 
-const HeartButton: Reaact.FC<HeartButtonProps> = ({
+const HeartButton: React.FC<HeartButtonProps> = ({
   listingId,
   currentUser
 }) => {
