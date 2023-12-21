@@ -5,7 +5,7 @@ import Container from '../components/Container';
 
 interface FavoritesClientProps {
   listings: SafeListing[];
-  currentUser?: SafeUser
+  currentUser?: SafeUser | null;
 }
 
 const FavoritesClient: React.FC<FavoritesClientProps> = ({
