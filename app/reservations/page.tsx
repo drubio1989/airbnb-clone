@@ -20,7 +20,7 @@ const ReservationsPage = async () => {
 
   const reservations = await geteReservations({
     // This was supposed to be authorId why?
-    authorId: currentUser.id
+    userId: currentUser.id
   })
 
   if (reservations.length === 0) {

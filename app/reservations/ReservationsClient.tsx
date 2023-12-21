@@ -43,7 +43,7 @@ const ReservationsClient: React.FC<ReservationClientProps> = ({
         title='Reservations'
         subtitle='Bookings on your properties'
       />
-         <div className="
+      <div className="
         mt-10
         grid
         grid-cols-1

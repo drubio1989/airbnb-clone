@@ -149,7 +149,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                       font-semibold
                   " 
                 >
-                  <button onClick={registerModal.onOpen}>
+                  <button onClick={() => router.push('/properties')}>
                     My Properties
                   </button>
                 </div>
