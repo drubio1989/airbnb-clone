@@ -2,6 +2,7 @@
 import { AiOutlineMenu } from 'react-icons/ai';
 import { useCallback, useState } from 'react';
 import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import Avatar from './Avatar';
 import MenuItem from './MenuItem';
 import Button from '../Button';
@@ -20,6 +21,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
   const rentModal = useRentModal();
+  const router = useRouter();
 
   const [isOpen, setIsOpen] = useState(false)
 
@@ -108,7 +110,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                     font-semibold
                   "
                 >
-                  <button onClick={loginModal.onOpen}>
+                  <button onClick={ () => router.push('/trips')}>
                     My Trips
                   </button>
                 </div>
