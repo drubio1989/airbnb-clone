@@ -136,7 +136,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                       font-semibold
                   " 
                 >
-                  <button onClick={registerModal.onOpen}>
+                  <button onClick={() => router.push('/reservations')}>
                     My Reservations
                   </button>
                 </div>
