@@ -110,7 +110,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                     font-semibold
                   "
                 >
-                  <button onClick={ () => router.push('/trips')}>
+                  <button onClick={() => router.push('/trips')}>
                     My Trips
                   </button>
                 </div>
@@ -123,7 +123,7 @@ const UserMenu: React.FC<UserMenuProps> = ({
                     font-semibold
                   "
                 >
-                  <button onClick={loginModal.onOpen}>
+                  <button onClick={() => router.push('/favorites')}>
                     My Favorites
                   </button>
                 </div>

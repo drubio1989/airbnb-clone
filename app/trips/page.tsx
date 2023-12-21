@@ -1,6 +1,6 @@
 import EmptyState from "../components/EmptyState";
 import ClientOnly from "../components/ClientOnly";
-import getCurrentUser from "../actions/getCurrent";
+import getCurrentUser from "../actions/getCurrentUser";
 import geteReservations from "../actions/getReservations";
 import TripsClient from "./TripsClient";
 
